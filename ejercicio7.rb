@@ -11,7 +11,7 @@ class Product
     (@large + @medium + @small + @xsmall)/4
   end
 
-  def to_file
+  def new_catalog
     file = File.open('nuevo_catalogo.txt','a')
     file.puts "#{@name}, #{@large}, #{@medium}, #{@small}"
     file.close
@@ -26,5 +26,5 @@ file.close
 File.open('catalogo.txt', 'r') { |file| data = file.readlines}
 data.each do |prod|
   ls = prod.split(', ')
-  products_list << Product.new(*ls).to_file
+  products_list << Product.new(*ls).new_catalog
 end
